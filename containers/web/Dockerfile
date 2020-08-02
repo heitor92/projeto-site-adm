@@ -2,6 +2,12 @@ FROM php:7.4.8-apache
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+
 RUN apt update && apt install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -15,7 +21,8 @@ RUN apt update && apt install -y \
     && docker-php-ext-configure mysqli --with-mysqli \
     && docker-php-ext-install -j$(nproc) mysqli
 
-RUN pecl install xdebug;
+RUN pecl install xdebug \
+&& docker-php-ext-enable xdebug
 
 RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
