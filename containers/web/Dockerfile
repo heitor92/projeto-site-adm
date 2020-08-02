@@ -22,7 +22,15 @@ RUN apt update && apt install -y \
     && docker-php-ext-install -j$(nproc) mysqli
 
 RUN pecl install xdebug \
-&& docker-php-ext-enable xdebug
+&& docker-php-ext-enable xdebug \
+&& echo "xdebug.remote_enable=on" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_handler=dbgp" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_port=9000" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_autostart=on" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_connect_back=1" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.idekey=docker" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_log=/tmp/xdebug.log" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.max_nesting_level=1500" >> $PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini
 
 RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 

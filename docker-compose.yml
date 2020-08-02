@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-    site-adaf:
+    site:
         volumes: 
             - ./code:/var/www/html
         build: ./containers/web
@@ -10,7 +10,7 @@ services:
         tty: true
         hostname: projeto-site-adm
         container_name: projeto-site-adm
-    db-wd:
+    db:
         build: ./containers/db
         ports: 
             - "3306:3306"
