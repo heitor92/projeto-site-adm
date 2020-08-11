@@ -1,22 +1,10 @@
 <?php
 
-function resolve($route) {
-    $path = $_SERVER['PATH_INFO'] ?? '/';
+require __DIR__ . '/src/error_handler.php';
+require __DIR__ . '/src/resolve-route.php';
+require __DIR__ . '/src/render.php';
+require __DIR__ . '/src/connection.php';
 
-    $route = '/^' . str_replace('/', '\/', $route) . '$/';
-
-    if(preg_match($route, $path, $params)){
-       return $params;
-    }
-
-    return false;
-
-}
-
-function render($content, $template, array $data = []){
-    $content =  __DIR__ . '/template/' .  $content . '.tpl.php';
-    return include __DIR__ . '/template/' . $template . '.tpl.php';
-}
 
 if(resolve('/admin/?(.*)')){
     require __DIR__ . '/admin/routes.php';
