@@ -3,6 +3,11 @@
 function setInternalServerError($errno, $errstr, $errfile, $errline)
 {
     echo '<h1>Error</h1>';
+
+    if(!DEBUG) {
+        exit;
+    }
+
     echo '<span style="font-weight: bold; color: red"';
     switch ($errno) {
         case E_USER_ERROR:
