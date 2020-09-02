@@ -1,11 +1,11 @@
-<h3>Administração de páginas</h3>
+<h3 class="mb-5">Administração de páginas</h3>
 
 
 <form action="" method="POST">
     <div class="form-group">
         <label for="pagesTitle">Título</label>
         <input name="title" id="pagesTitle" type="text" class="form-control"
-            placeholder="Aqui vai o título da página...">
+            placeholder="Aqui vai o título da página..." required>
     </div>
 
     <div class="form-group">
@@ -20,7 +20,8 @@
     </div>
 
     <div class="form-group">
-        // editor de texto
+        <input id="pagesBody" type="hidden" name="body">
+        <trix-editor input="pagesBody"></trix-editor>
     </div>
 
     <button type="submit" class="btn btn-primary">Salvar</button>
