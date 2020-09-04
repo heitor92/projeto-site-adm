@@ -1,4 +1,4 @@
-<h3 class="mb-5">Administração de páginas</h3>
+<h3 class="mb-5">Nova página</h3>
 
 
 <form action="" method="POST">

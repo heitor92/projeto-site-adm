@@ -1,4 +1,4 @@
-<h3 class="mb-5">Administração de páginas</h3>
+<h3 class="mb-5">Detalhes da página</h3>
 
 <div class="row">
     <div class="col-3">
