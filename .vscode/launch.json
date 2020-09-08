@@ -10,7 +10,7 @@
             "type": "php",
             "request": "launch",
             "port": 9000,
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "pathMappings": {
                 "/var/www/html": "${workspaceFolder}/code"
             }
