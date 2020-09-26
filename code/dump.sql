@@ -18,7 +18,7 @@ USE `pp_criando_site_com_php` ;
 -- Table `pp_criando_site_com_php`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pp_criando_site_com_php`.`users` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(250) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
   `created` DATETIME NOT NULL,
@@ -31,13 +31,13 @@ ENGINE = InnoDB;
 -- Table `pp_criando_site_com_php`.`pages`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pp_criando_site_com_php`.`pages` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(250) NOT NULL,
   `url` VARCHAR(250) NOT NULL,
   `body` TEXT NULL,
   `created` DATETIME NOT NULL,
   `updated` DATETIME NOT NULL,
-  `users_id` INT NOT NULL,
+  `users_id` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_pages_users_idx` (`users_id` ASC) VISIBLE,
   CONSTRAINT `fk_pages_users`
