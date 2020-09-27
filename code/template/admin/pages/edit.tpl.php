@@ -5,7 +5,7 @@
     <div class="form-group">
         <label for="pagesTitle">Título</label>
         <input name="title" id="pagesTitle" type="text" class="form-control"
-            placeholder="Aqui vai o título da página..." required value="Página inicial">
+            placeholder="Aqui vai o título da página..." required value="<?= $data['page']['title']; ?>">
     </div>
 
     <div class="form-group">
@@ -15,12 +15,12 @@
                 <span class="input-group-text">/</span>
             </div>
             <input name="url" id="pagesUrl" type="text" class="form-control"
-                placeholder="URL amigável, deixe em branco para informar a página inicial...">
+                placeholder="URL amigável, deixe em branco para informar a página inicial..." value="<?= $data['page']['url']; ?>">
         </div>
     </div>
 
     <div class="form-group">
-        <input id="pagesBody" type="hidden" name="body" value="<h3>Página inicial</h3><p>Está é a página inicial do site</p>">
+        <input id="pagesBody" type="hidden" name="body" value="<?= $data['page']['body']; ?>">
         <trix-editor input="pagesBody"></trix-editor>
     </div>
 
@@ -30,4 +30,4 @@
 
 <hr>
 
-<a href="/admin/pages/1" class="btn btn-secondary">Voltar</a>
+<a href="/admin/pages/<?= $data['page']['id']; ?>" class="btn btn-secondary">Voltar</a>

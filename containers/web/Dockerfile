@@ -3,6 +3,9 @@ FROM php:7.4.8-apache
 ARG DEBIAN_FRONTEND=noninteractive
 
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+ENV TZ=America/Manaus
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
 
