@@ -18,8 +18,14 @@ $users_all = function () use ($conn) {
     return $result->fetch_all(MYSQLI_ASSOC);
 };
 
-$users_view = function () use ($conn) {
+$users_view = function ($id) use ($conn) {
+    $stmt = $conn->prepare('SELECT * FROM users WHERE id=?');
+    $stmt->bind_param('i', $id);
 
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+    return $result->fetch_assoc();
 };
 
 $users_create = function () use ($conn) {

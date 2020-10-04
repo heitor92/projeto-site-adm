@@ -3,7 +3,7 @@
 <form action="" method="post">
     <div class="form-group">
         <label for="userEmail">Email</label>
-        <input id="userEmail" type="email" name="email" class="form-control" placeholder="Seu email aqui..." value="erik@erik.com">
+        <input id="userEmail" type="email" name="email" class="form-control" placeholder="Seu email aqui..." value="<?= $data['user']['email']; ?>">
     </div>
     <div class="form-group">
         <label for="userPassword">Senha</label>
@@ -15,4 +15,4 @@
 
 <hr>
 
-<a href="/admin/users/1" class="btn btn-secondary">Voltar</a>
+<a href="/admin/users/<?= $data['user']['id']; ?>" class="btn btn-secondary">Voltar</a>

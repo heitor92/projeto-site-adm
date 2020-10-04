@@ -11,10 +11,12 @@ if (resolve('/admin/users')) {
         return header('location: /admin/users');
     }
     render('admin/users/create', 'admin');
-} else if (resolve('/admin/users/(\d+)')) {
-    render('admin/users/view', 'admin');
-} else if (resolve('/admin/users/(\d+)/edit')) {
-    render('admin/users/edit', 'admin');
+} else if ($params = resolve('/admin/users/(\d+)')) {
+    $user = $users_view($params[1]);
+    render('admin/users/view', 'admin', compact('user'));
+} else if ($params = resolve('/admin/users/(\d+)/edit')) {
+    $user = $users_view($params[1]);
+    render('admin/users/edit', 'admin', compact('user'));
 } else if ($params = resolve('/admin/users/(\d+)/delete')) {
     $users_delete($params[1]);
     return header('location: /admin/users');

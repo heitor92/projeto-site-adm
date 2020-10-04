@@ -3,17 +3,17 @@
 
 <dl class="rol">
     <dt class="col-sm-3">Email</dt>
-    <dd class="col-sm-9">erik@erik.com</dd>
+    <dd class="col-sm-9"><?= $data['user']['email']; ?></dd>
 
     <dt class="col-sm-3">Criado em</dt>
-    <dd class="col-sm-9">2018-10-20 11:31</dd>
+    <dd class="col-sm-9"><?= $data['user']['created']; ?></dd>
 
     <dt class="col-sm-3">Atualizado em</dt>
-    <dd class="col-sm-9">2018-10-20 11:31</dd>
+    <dd class="col-sm-9"><?= $data['user']['updated']; ?></dd>
 </dl>
 
 <p>
-    <a href="/admin/users/1/edit" class="btn btn-primary">editar</a>
-    <a href="/admin/users/1/delete" class="btn btn-danger confirm">remover</a>
+    <a href="/admin/users/<?= $data['user']['id']; ?>/edit" class="btn btn-primary">editar</a>
+    <a href="/admin/users/<?= $data['user']['id']; ?>/delete" class="btn btn-danger confirm">remover</a>
 </p>
 <a href="/admin/users" class="btn btn-secondary">Voltar</a>
