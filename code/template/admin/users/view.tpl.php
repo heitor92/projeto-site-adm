@@ -16,4 +16,4 @@
     <a href="/admin/users/1/edit" class="btn btn-primary">editar</a>
     <a href="/admin/users/1/delete" class="btn btn-danger confirm">remover</a>
 </p>
-<a href="/admin/users/1" class="btn btn-secondary">Voltar</a>
+<a href="/admin/users" class="btn btn-secondary">Voltar</a>

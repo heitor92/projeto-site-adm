@@ -10,13 +10,15 @@
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($data['users'] as $user): ?>
         <tr>
-            <td>1</td>
-            <td>erik@erik.com</td>
+            <td><?= $user['id']; ?></td>
+            <td><?= $user['email']; ?></td>
             <td class="text-right">
-                <a href="/admin/users/1" class="btn btn-primary btn-sm">ver</a>
+                <a href="/admin/users/<?= $user['id']; ?>" class="btn btn-primary btn-sm">ver</a>
             </td>
         </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 
