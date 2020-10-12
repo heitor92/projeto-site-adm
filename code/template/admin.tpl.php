@@ -20,11 +20,14 @@
 
 <body class="d-flex flex-column">
     <div id="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a href="/admin" class="navbar-brand">AdminSON</a>
-            <span class="navbar-text">
-                Painel Administrativo da School of Net
+        <nav class="navbar navbar-dark bg-dark">
+            <span>
+                <a href="/admin" class="navbar-brand">AdminSON</a>
+                <span class="navbar-text">
+                    Painel Administrativo da School of Net
+                </span>
             </span>
+            <a href="/admin/auth/logout" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i></a>
         </nav>
     </div>
     <div id="main">
@@ -35,10 +38,10 @@
                         <span class="nav-link text-white-50"><small>MENU</small></span>
                     </li>
                     <li class="nav-item">
-<a class="nav-link<?php if (resolve('/admin/pages.*')): ?> active<?php endif; ?>" href="/admin/pages"><i class="far fa-file-alt"></i> Páginas</a>
+                        <a class="nav-link<?php if (resolve('/admin/pages.*')) : ?> active<?php endif; ?>" href="/admin/pages"><i class="far fa-file-alt"></i> Páginas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link<?php if (resolve('/admin/users.*')): ?> active <?php endif; ?>" href="/admin/users"><i class="far fa-user"></i> Usuários</a>
+                        <a class="nav-link<?php if (resolve('/admin/users.*')) : ?> active <?php endif; ?>" href="/admin/users"><i class="far fa-user"></i> Usuários</a>
                     </li>
                 </ul>
             </div>

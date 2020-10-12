@@ -3,11 +3,11 @@
 <p>O que você quer fazer agora?</p>
 
 <p>
-    <a href="" class="btn btn-primary btn-lg">
+    <a href="/admin/pages" class="btn btn-primary btn-lg">
         <span style="font-size: 70px;"><i class="far fa-file-alt"></i></span><br>
         Gerenciar páginas
     </a>
-    <a href="" class="btn btn-success btn-lg">
+    <a href="/admin/users" class="btn btn-success btn-lg">
         <span style="font-size: 70px;"><i class="far fa-user"></i></span><br>
         Gerenciar usuários
     </a>
