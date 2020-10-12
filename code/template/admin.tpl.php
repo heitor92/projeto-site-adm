@@ -12,13 +12,16 @@
     <link rel="stylesheet" href="/resources/pnotify/pnotify.custom.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
+    <!-- JavaScript Font Awesome -->
+    <script src="https://kit.fontawesome.com/7aa75553af.js" crossorigin="anonymous"></script>
+
     <title>Painel Administrativo da School of Net</title>
 </head>
 
 <body class="d-flex flex-column">
     <div id="header">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a href="" class="navbar-brand">AdminSON</a>
+            <a href="/admin" class="navbar-brand">AdminSON</a>
             <span class="navbar-text">
                 Painel Administrativo da School of Net
             </span>
@@ -32,10 +35,10 @@
                         <span class="nav-link text-white-50"><small>MENU</small></span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="">Páginas</a>
+<a class="nav-link<?php if (resolve('/admin/pages.*')): ?> active<?php endif; ?>" href="/admin/pages"><i class="far fa-file-alt"></i> Páginas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Usuários</a>
+                        <a class="nav-link<?php if (resolve('/admin/users.*')): ?> active <?php endif; ?>" href="/admin/users"><i class="far fa-user"></i> Usuários</a>
                     </li>
                 </ul>
             </div>
@@ -55,10 +58,9 @@
     <script src="/resources/pnotify/pnotify.custom.min.js"></script>
 
     <script>
-
-        document.addEventListener('trix-attachment-add', function () {
+        document.addEventListener('trix-attachment-add', function() {
             const attachment = event.attachment;
-            if(!attachment.file) {
+            if (!attachment.file) {
                 return;
             }
             const form = new FormData();
@@ -70,20 +72,20 @@
                 data: form,
                 contentType: false,
                 processData: false,
-                xhr: function () {
+                xhr: function() {
                     const xhr = $.ajaxSettings.xhr();
-                    xhr.upload.addEventListener('progress', function (e) {
+                    xhr.upload.addEventListener('progress', function(e) {
                         let progress = e.loaded / e.total * 100;
                         attachment.setUploadProgress(progress);
                     })
                     return xhr;
                 }
-            }).done(function (response) {
+            }).done(function(response) {
                 attachment.setAttributes({
                     url: response,
                     href: response
                 });
-            }).fail(function () {
+            }).fail(function() {
                 console.log('deu errado');
             });
         });
@@ -91,15 +93,14 @@
         <?php flash(); ?>
 
         const confirmEl = document.querySelector('.confirm');
-        if(confirmEl){
+        if (confirmEl) {
             confirmEl.addEventListener('click', function(e) {
                 e.preventDefault();
-                if(confirm('Tem certeza que quer fazer isso?')){
+                if (confirm('Tem certeza que quer fazer isso?')) {
                     window.location = e.target.getAttribute('href');
                 }
             });
         }
-        
     </script>
 </body>
 
