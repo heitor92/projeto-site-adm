@@ -1,5 +1,7 @@
 <?php
 
+auth_protection();
+
 if (resolve('/admin')) {
     render('admin/home', 'admin');
 } elseif (resolve('/admin/auth.*')) {
