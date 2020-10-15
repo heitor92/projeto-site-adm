@@ -13,7 +13,9 @@
     </header>
 
     <ul id="nav">
-        <li><a href="/">Home</a></li>
+        <?php foreach($data['pages'] as $item): ?>
+            <li><a href="/<?= $item['url'] ?>"><?= $item['title'] ?></a></li>
+        <?php endforeach; ?>
         <li><a href="/contato">Contato</a></li>
     </ul>
 
